@@ -31,3 +31,13 @@ docker rmi `docker images -q`
 ```
 docker system prune
 ```
+
+#### コンテナに入る
+```
+docker exec -it <container_name> /bin/bash
+```
+
+#### コンテナ内でコマンドを実行する
+```
+docker exec <container_name> <command>
+```
