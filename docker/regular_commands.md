@@ -1,15 +1,21 @@
 # Docker
 Dockerでよく使うコマンドを記載する。
 
-#### docker-compose.ymlからコンテナを起動する
-```
-docker compose up -d
-```
-
 #### 滅びの呪文
 コンテナ、イメージ、ボリューム、ネットワーク、全てを一括削除する。
 ```
 docker compose down --rmi all --volumes --remove-orphans
+```
+
+#### コンテナを一括削除
+起動中のコンテナを含めて、一括削除する。
+```
+docker rm -f `docker ps -a -q`
+```
+
+#### 未使用イメージを一括削除する
+```
+docker rmi `docker images -q`
 ```
 
 #### コンテナを一覧表示する
@@ -22,14 +28,14 @@ docker ps -a
 docker images
 ```
 
-#### 未使用イメージを一括削除する
-```
-docker rmi `docker images -q`
-```
-
 #### 不要なリソースを削除する
 ```
 docker system prune
+```
+
+#### docker-compose.ymlからコンテナを起動する
+```
+docker compose up -d
 ```
 
 #### コンテナに入る
