@@ -45,3 +45,27 @@ git fetch --prune
 ```
 git branch -D <branch_name>
 ```
+
+#### stageを取り消す
+```
+// ファイルごと
+git restore --staged ファイル名
+// 一括
+git restore --staged .
+```
+
+#### 変更を取り消す（stageしていない）
+```
+// ファイルごと
+git restore ファイル名
+// 一括
+git restore .
+```
+
+#### 追加ファイル・ディレクトリを取り消す
+```
+// ファイル
+git clean -f
+// ディレクトリ
+git clean -df
+```
