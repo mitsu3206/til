@@ -45,3 +45,26 @@ export default function Search() {
   );
 }
 ```
+
+### ベストプラクティス debounce
+上記のコードの状態だと、入力のたびにデータベースがクエリされる。
+デバウンスは関数が実行される頻度を制御する手法である。
+
+```tsx:search.tsx
+// ...
+import { useDebouncedCallback } from 'use-debounce';
+ 
+// Inside the Search Component...
+const handleSearch = useDebouncedCallback((term) => {
+  console.log(`Searching... ${term}`);
+ 
+  const params = new URLSearchParams(searchParams);
+  if (term) {
+    params.set('query', term);
+  } else {
+    params.delete('query');
+  }
+  replace(`${pathname}?${params.toString()}`);
+}, 300);
+```
+
