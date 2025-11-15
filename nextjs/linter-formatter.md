@@ -83,3 +83,19 @@ npx prettier . --write
 
 ## Linter
 ### ESLintの設定
+
+## 備考
+Prettierに関しての設定に問題がないかをチェックできるツールは[公式ドキュメント](https://github.com/prettier/eslint-config-prettier?tab=readme-ov-file#cli-helper-tool)を参照する。
+
+以下のコマンドで実行できる。
+
+```
+npx eslint-config-prettier path/to/main.js
+```
+
+実行結果:
+
+```
+No rules that are unnecessary or conflict with Prettier were found.
+↑この様に表示されればOK
+```
